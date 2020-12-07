@@ -40,7 +40,7 @@ router.use('/api/gaming', gamingRoutes.grouter);
 /** Error handling */
 router.use((req, res, next) => {
     const error = new Error('Not found');
-
+    logging.error(NAMESPACE, error.message, error.name);
     res.status(404).json({
         message: error.message
     });
